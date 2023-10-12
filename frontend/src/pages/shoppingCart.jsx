@@ -1,8 +1,11 @@
 import React from 'react'
+import ProgressBar from '../components/shoppingBasket/progressBar'
 
 const ShoppingCart = () => {
   return (
-    <div>ShoppingCart</div>
+    <>
+    <ProgressBar/>
+    </>
   )
 }
 
