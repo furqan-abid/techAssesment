@@ -31,6 +31,7 @@ const Main = styled.div`
 
 const Container = styled.div`
   width: 40%;
+  min-width:20em;
   ul {
     list-style: none;
     display: flex;
