@@ -22,7 +22,7 @@ To run the project, you need to set up both the backend and frontend.
    npm i
    ```
 
-3. Create a `.env` file in the `backend/config` folder to store your environment variables, such as  PORT.
+3. Create a `config.env` file in the `backend/config` folder to store your environment variables, such as  PORT.
 
    ```
    PORT=4000
