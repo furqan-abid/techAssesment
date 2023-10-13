@@ -39,7 +39,7 @@ const NavMenu = () => {
         </Options>
         <Link to='/cart'>
         <Basket>
-          <ShoppingBagIcon sx={{ fontSize: "1em" }} />
+          <CartIcon> <span>{cart?.length}</span> <ShoppingBagIcon sx={{ fontSize: "1em" }} /></CartIcon>
           <h4>Basket</h4>
           <p><p>$ {totalPrice.toFixed(2)}</p></p>
         </Basket>
@@ -156,3 +156,24 @@ const Basket = styled.div`
     border-radius: 20px;
   }
 `;
+
+
+const CartIcon = styled.div`
+  position: relative;
+  span{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    position: absolute;
+    background-color: red;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    top: -5px;
+    right:-5px;
+    color: white;
+    font-size: 0.5em;
+    text-align: center;
+    font-weight: bold;
+  }
+`

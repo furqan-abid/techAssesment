@@ -70,7 +70,7 @@ const Card = styled.div`
   margin-top: 1em;
 `;
 const Section1 = styled.div`
-  width: 50%;
+  width: 40%;
   /* min-width: 10em; */
   height: 100%;
   display: flex;
@@ -82,7 +82,7 @@ const Section1 = styled.div`
 `;
 
 const Img = styled.div`
-  width:50%;
+  width:60%;
   overflow: hidden;
   img {
     object-fit: cover;
