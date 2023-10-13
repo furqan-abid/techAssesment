@@ -10,12 +10,12 @@ const Card = ({data}) => {
   const [body, setBody] = useState({
     itemId:data.id,
     name: data.name,
-    size:'',
+    size:{},
     description:data.description
   })
   
   const handleAddItem= () =>{
-    if(!body.size){
+    if(Object.keys(body.size).length===0){
       return toast.error("please select size first")
     }
     addToCart(body).unwrap()
@@ -50,7 +50,7 @@ const Card = ({data}) => {
         </p>
       </Heading>
       <DropDown>
-        <select name="pizza" id="pizza" value={body.size} onChange={(e)=>setBody({...body,size:JSON.parse(e.target.value)})}>
+        <select name="size" id="pizza" onChange={(e)=>setBody({...body,size:JSON.parse(e.target.value)})}>
           <option value="">Select</option>
           {
             data?.sizes?.map((pizza)=>(

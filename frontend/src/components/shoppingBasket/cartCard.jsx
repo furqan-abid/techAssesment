@@ -37,8 +37,7 @@ const Main = styled.div`
   min-height: 20vh;
   background-color: rgb(226, 234, 238);
   margin-top: 1em;
-
-  min-width: 15em;
+  /* min-width: 15em; */
   padding: 1em;
   display: flex;
   flex-direction: column;
@@ -51,10 +50,10 @@ const Info = styled.div`
   justify-content: space-between;
   h4{
     width: 80%;
-    font-size: clamp(0.5em, 0.8vw, 2em);
+    font-size: clamp(0.8em, 1vw, 2em);
   }
   span{
-    font-size: clamp(0.5em, 0.8vw, 2em);
+    font-size: clamp(0.5em, 1vw, 2em);
   }
 `;
 
@@ -68,15 +67,16 @@ const Card = styled.div`
   flex-wrap: wrap;
   position: relative;
   overflow: hidden;
+  margin-top: 1em;
 `;
 const Section1 = styled.div`
-  width: 30%;
-  min-width: 10em;
+  width: 50%;
+  /* min-width: 10em; */
   height: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     width: 100%;
   }
 `;
@@ -89,10 +89,9 @@ const Img = styled.div`
     width: 100%;
     height: 100%;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     height: auto;
     width: 100%;
-    border: 1px solid;
   }
 `;
 
@@ -108,9 +107,9 @@ const Heading = styled.div`
 `;
 
 const Section2 = styled.div`
-  width: 20%;
+  width: 50%;
   height: 100%;
-  min-width: 10em;
+  /* min-width: 10em; */
 `;
 
 const Button = styled.div`

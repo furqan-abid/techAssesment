@@ -1,10 +1,24 @@
-import React from "react";
+import React ,{useMemo} from "react";
 import styled from "styled-components";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { Link, NavLink } from "react-router-dom";
+import { useGetCartQuery } from "../../features/cartSlice";
 
 const NavMenu = () => {
+
+  const { data: cart, isLoading } = useGetCartQuery()
+
+  const totalPrice = useMemo(() => {
+    let totalPrice = 0;
+    if (cart) {
+      for (let item of cart) {
+        totalPrice += item.size.price;
+      }
+    }
+    return totalPrice;
+  }, [cart]);
+
   return (
     <Main>
       <Container>
@@ -27,7 +41,7 @@ const NavMenu = () => {
         <Basket>
           <ShoppingBagIcon sx={{ fontSize: "1em" }} />
           <h4>Basket</h4>
-          <p>$ 0.00</p>
+          <p><p>$ {totalPrice.toFixed(2)}</p></p>
         </Basket>
         </Link>
       </Container>
@@ -138,7 +152,7 @@ const Basket = styled.div`
   p {
     background-color: rgb(86, 145, 66);
     font-size: clamp(0.5em, 0.8vw, 1.8em);
-    padding: 0.4em 0.5em;
+    padding: 0.2em 0.5em;
     border-radius: 20px;
   }
 `;
