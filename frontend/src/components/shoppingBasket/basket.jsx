@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import basket from '../../assets/basket.png'
+import { useGetCartQuery } from '../../features/cartSlice'
 
 
 const Basket = () => {
+
+    const {data:cart} = useGetCartQuery()
   return (
     <Main>
         <Container>
@@ -11,7 +14,7 @@ const Basket = () => {
         <img src={basket} alt="basket" />
         </Img>
         <Text>
-            You have 1 item on a collection order
+            You have {cart?.length} item on a collection order
         </Text>
         </Container>
     </Main>

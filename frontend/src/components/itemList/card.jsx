@@ -50,11 +50,11 @@ const Card = ({data}) => {
         </p>
       </Heading>
       <DropDown>
-        <select name="pizza" id="pizza" value={body.size} onChange={(e)=>setBody({...body,size:e.target.value})}>
+        <select name="pizza" id="pizza" value={body.size} onChange={(e)=>setBody({...body,size:JSON.parse(e.target.value)})}>
           <option value="">Select</option>
           {
             data?.sizes?.map((pizza)=>(
-              <option value={pizza.name}>{pizza.name}</option>
+              <option value={JSON.stringify(pizza)}>{pizza.name}</option>
             ))
           }
         </select>

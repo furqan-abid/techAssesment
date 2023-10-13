@@ -1,1 +1,1 @@
-[{"itemId":2,"name":"pizza","size":"large","description":"this is test description","quantity":3}]
+[{"itemId":1,"name":"Margherita Pizza","size":{"name":"Small","price":9.99},"description":"Classic tomato and mozzarella cheese pizza with fresh basil leaves."},{"itemId":2,"name":"Pepperoni Pizza","size":{"name":"Large","price":16.99},"description":"Traditional pepperoni pizza with tomato sauce and mozzarella cheese."}]

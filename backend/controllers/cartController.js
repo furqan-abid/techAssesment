@@ -19,34 +19,32 @@ const saveShoppingCart = () => {
 
 exports.getAllItems = (req, res, next) => {
   res.status(200).json({
-    success:true,
-    menu:menuData.menu
+    success: true,
+    menu: menuData.menu,
   });
 };
 
 exports.addToCart = (req, res, next) => {
-  const { itemId,name,size,description,quantity } = req.body;
+  const { itemId, name, size, description } = req.body;
   const menuItem = menuData.menu.find((item) => item.id === itemId);
 
   if (!menuItem) {
     return next(new Errorhandler("Menu item not found", 404));
   } else {
-    const existingCartItem = shoppingCart.find((item) => item.id === itemId);
-
-    if (existingCartItem) {
-      existingCartItem.quantity += quantity;
-    } else {
-      shoppingCart.push({ itemId,name,size,description, quantity });
-    }
+    shoppingCart.push({ itemId, name, size, description });
 
     saveShoppingCart();
-    res.status(201).json(shoppingCart);
+    res.status(201).json({
+      success: true,
+      message: "Item added to cart",
+      shoppingCart,
+    });
   }
 };
 
 exports.getCartItems = (req, res, next) => {
   res.status(200).json({
-    success:true,
-    cart:shoppingCart
-  })
+    success: true,
+    cart: shoppingCart,
+  });
 };

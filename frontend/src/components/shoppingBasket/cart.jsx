@@ -1,39 +1,29 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
+import { useGetCartQuery } from "../../features/cartSlice";
 import CartCard from "./cartCard";
-let data = [
-  {
-    id: 1,
-    name: "Margherita Pizza",
-    description:
-      "Classic tomato and mozzarella cheese pizza with fresh basil leaves.",
-    labels: ["Vegetarian"],
-    size: {
-      name: "Medium",
-      price: 12.99,
-    },
-  },
-  {
-    id: 1,
-    name: "Margherita Pizza",
-    description:
-      "Classic tomato and mozzarella cheese pizza with fresh basil leaves.",
-    labels: ["Vegetarian"],
-    size: {
-      name: "Large",
-      price: 15.99,
-    },
-  },
-];
+
 const Cart = () => {
+  const { data: cart, isLoading } = useGetCartQuery();
+
+  const totalPrice = useMemo(() => {
+    let totalPrice = 0;
+    if (cart) {
+      for (let item of cart) {
+        totalPrice += item.size.price;
+      }
+    }
+    return totalPrice;
+  }, [cart]);
+
   return (
     <Main>
       <Container>
-        {
-            data.map((item,index)=>(
-                <CartCard key={index} data={item}/>
-            ))
-        }
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          cart.map((item, index) => <CartCard key={index} data={item} />)
+        )}
         <Voucher>
           <InputSection>
             <input type="text" placeholder="Enter your voucher code..." />
@@ -41,7 +31,7 @@ const Cart = () => {
           </InputSection>
           <PriceSection>
             <span>Total</span> <del>23.99</del>
-            <p>$11.99</p>
+            <p>$ {totalPrice.toFixed(2)}</p>
           </PriceSection>
         </Voucher>
       </Container>
@@ -84,13 +74,13 @@ const InputSection = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 1em 0em;
-  input{
+  input {
     padding: 1vw;
     border: 1px solid gray;
     width: 15vw;
     min-width: 10em;
   }
-  button{
+  button {
     padding: 1vw 2.5vw;
     border-radius: 50px;
     outline: none;
