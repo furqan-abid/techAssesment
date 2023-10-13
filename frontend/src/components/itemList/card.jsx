@@ -1,8 +1,41 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import pizza from "../../assets/pizza.png";
+import { useAddToCartMutation } from "../../features/cartSlice";
+import {Toaster,toast} from 'react-hot-toast'
 
 const Card = ({data}) => {
+
+  const [addToCart] = useAddToCartMutation()
+  const [body, setBody] = useState({
+    itemId:data.id,
+    name: data.name,
+    size:'',
+    description:data.description
+  })
+  
+  const handleAddItem= () =>{
+    if(!body.size){
+      return toast.error("please select size first")
+    }
+    addToCart(body).unwrap()
+    .then((res)=>{
+      console.log('item added to cart ', res)
+      toast.success(res.message)
+    })
+    .catch((err)=>{
+      console.log('Error adding item to the cart ', err);
+      toast.error('Error adding item to the cart ')
+    }).finally(()=>{
+      setBody({
+        itemId:data.id,
+        name: data.name,
+        size:'',
+        description:data.description
+      })
+    })
+  }
+
   return (
     <Main>
       <Img>
@@ -17,7 +50,8 @@ const Card = ({data}) => {
         </p>
       </Heading>
       <DropDown>
-        <select name="pizza" id="pizza">
+        <select name="pizza" id="pizza" value={body.size} onChange={(e)=>setBody({...body,size:e.target.value})}>
+          <option value="">Select</option>
           {
             data?.sizes?.map((pizza)=>(
               <option value={pizza.name}>{pizza.name}</option>
@@ -29,10 +63,11 @@ const Card = ({data}) => {
         <h3>
           Coustomize
         </h3>
-        <p>+</p>
+        <p onClick={handleAddItem}>+</p>
         <Sphere>
         </Sphere>
       </Coustomize>
+      <Toaster/>
     </Main>
   );
 };

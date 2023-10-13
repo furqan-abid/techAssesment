@@ -20,6 +20,7 @@ const cartSlice = apiSlice.injectEndpoints({
             query:()=>({
                 url:'cart'
             }),
+            transformResponse:(response)=>response.cart,
             providesTags:["Cart"]
         })
     })
