@@ -5,15 +5,11 @@ import SubMenu from '../components/itemList/subMenu'
 
 const Itemlist = () => {
   return (
-    <Main>
+    <>
         <SubMenu/>
         <Items/>
-    </Main>
+    </>
   )
 }
 
 export default Itemlist
-
-const Main = styled.div`
-
-`

@@ -22,7 +22,7 @@ const Cart = () => {
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          cart.map((item, index) => <CartCard key={index} data={item} />)
+          cart?.map((item, index) => <CartCard key={index} data={item} />)
         )}
         <Voucher>
           <InputSection>
