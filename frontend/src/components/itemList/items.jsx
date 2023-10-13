@@ -1,154 +1,38 @@
-import React from 'react'
-import styled from 'styled-components'
-import Card from './card'
-let data = [
-    {
-        id: 1,
-        name: "Margherita Pizza",
-        description: "Classic tomato and mozzarella cheese pizza with fresh basil leaves.",
-        labels: ["Vegetarian"],
-        sizes: [
-          {
-            name: "Small",
-            price: 9.99
-          },
-          {
-            name: "Medium",
-            price: 12.99
-          },
-          {
-            name: "Large",
-            price: 15.99
-          }
-        ]
-      },
-    {
-        id: 1,
-        name: "Margherita Pizza",
-        description: "Classic tomato and mozzarella cheese pizza with fresh basil leaves.",
-        labels: ["Vegetarian"],
-        sizes: [
-          {
-            name: "Small",
-            price: 9.99
-          },
-          {
-            name: "Medium",
-            price: 12.99
-          },
-          {
-            name: "Large",
-            price: 15.99
-          }
-        ]
-      },
-    {
-        id: 1,
-        name: "Margherita Pizza",
-        description: "Classic tomato and mozzarella cheese pizza with fresh basil leaves.",
-        labels: ["Vegetarian"],
-        sizes: [
-          {
-            name: "Small",
-            price: 9.99
-          },
-          {
-            name: "Medium",
-            price: 12.99
-          },
-          {
-            name: "Large",
-            price: 15.99
-          }
-        ]
-      },
-    {
-        id: 1,
-        name: "Margherita Pizza",
-        description: "Classic tomato and mozzarella cheese pizza with fresh basil leaves.",
-        labels: ["Vegetarian"],
-        sizes: [
-          {
-            name: "Small",
-            price: 9.99
-          },
-          {
-            name: "Medium",
-            price: 12.99
-          },
-          {
-            name: "Large",
-            price: 15.99
-          }
-        ]
-      },
-    {
-        id: 1,
-        name: "Margherita Pizza",
-        description: "Classic tomato and mozzarella cheese pizza with fresh basil leaves.",
-        labels: ["Vegetarian"],
-        sizes: [
-          {
-            name: "Small",
-            price: 9.99
-          },
-          {
-            name: "Medium",
-            price: 12.99
-          },
-          {
-            name: "Large",
-            price: 15.99
-          }
-        ]
-      },
-    {
-        id: 1,
-        name: "Margherita Pizza",
-        description: "Classic tomato and mozzarella cheese pizza with fresh basil leaves.",
-        labels: ["Vegetarian"],
-        sizes: [
-          {
-            name: "Small",
-            price: 9.99
-          },
-          {
-            name: "Medium",
-            price: 12.99
-          },
-          {
-            name: "Large",
-            price: 15.99
-          }
-        ]
-      },
-]
+import React from "react";
+import styled from "styled-components";
+import { useGetAllItemsQuery } from "../../features/cartSlice";
+import Card from "./card";
+
 const Items = () => {
+  
+  const { data: items, isLoading } = useGetAllItemsQuery();
+  console.log("this is item", items);
+
   return (
     <Main>
-        <Container>
-            {
-                data?.map((ls)=>(
-                    <Card key={ls} data={ls}/>
-                ))
-            }
-        </Container>
+      <Container>
+        {isLoading ? (
+          <div>loading...</div>
+        ) : (
+          items?.map((ls) => <Card key={ls} data={ls} />)
+        )}
+      </Container>
     </Main>
-  )
-}
+  );
+};
 
-export default Items
+export default Items;
 
 const Main = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: whitesmoke;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+`;
 const Container = styled.div`
-    width: 70%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-`
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+`;

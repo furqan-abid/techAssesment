@@ -6,7 +6,7 @@ const cartSlice = apiSlice.injectEndpoints({
             query:()=>({
                 url:"items"
             }),
-            // transformResponse:(response)=>response.downPaymentStatus,
+            transformResponse:(response)=>response.menu,
         }),
         addToCart:builder.mutation({
             query:(body)=>({
