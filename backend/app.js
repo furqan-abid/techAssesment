@@ -6,27 +6,14 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-const blog= require('./routes/blogRoutes');
-const team = require('./routes/teamRoutes')
-const webDev = require('./routes/webDevRoutes')
-const appDev = require('./routes/appDevRoutes')
-const graphic = require('./routes/graphicRoutes')
-const fileUpload = require("express-fileupload");
-
-app.use(fileUpload({
-    useTempFiles:true,
-}))
+const cart = require('./routes/cartRoutes')
 
 app.use(cors({
     origin: "*",
     optionsSuccessStatus: 200
 }))
 
-app.use('/api/v1',blog);
-app.use('/api/v1/',team)
-app.use('/api/v1',webDev)
-app.use('/api/v1',appDev)
-app.use('/api/v1',graphic)
+app.use('/api',cart);
 
 app.use(errorMiddleware)
 

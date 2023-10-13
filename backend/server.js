@@ -1,5 +1,4 @@
 const app = require('./app');
-const connectDatabase = require('./config/database');
 require('dotenv').config({path: 'config/config.env'});
 
 
@@ -10,9 +9,6 @@ process.on('uncaughtException', function(err) {
     process.exit(1);
 })
 
-
-//connecting database
-connectDatabase()
 
 const server= app.listen(process.env.Port,()=>{
     console.log(`server is runing on ${process.env.Port}`);

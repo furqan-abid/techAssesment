@@ -1,0 +1,122 @@
+{
+  "menu": [
+    {
+      "id": 1,
+      "name": "Margherita Pizza",
+      "description": "Classic tomato and mozzarella cheese pizza with fresh basil leaves.",
+      "labels": ["Vegetarian"],
+      "sizes": [
+        {
+          "name": "Small",
+          "price": 9.99
+        },
+        {
+          "name": "Medium",
+          "price": 12.99
+        },
+        {
+          "name": "Large",
+          "price": 15.99
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Pepperoni Pizza",
+      "description": "Traditional pepperoni pizza with tomato sauce and mozzarella cheese.",
+      "sizes": [
+        {
+          "name": "Small",
+          "price": 10.99
+        },
+        {
+          "name": "Medium",
+          "price": 13.99
+        },
+        {
+          "name": "Large",
+          "price": 16.99
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Vegetarian Pizza",
+      "description": "Loaded with assorted fresh vegetables and mozzarella cheese.",
+      "labels": ["Vegetarian"],
+      "sizes": [
+        {
+          "name": "Small",
+          "price": 11.99
+        },
+        {
+          "name": "Medium",
+          "price": 14.99
+        },
+        {
+          "name": "Large",
+          "price": 17.99
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Meat Lover's Pizza",
+      "description": "A carnivore's delight with pepperoni, sausage, bacon, and ham.",
+      "labels": ["Hot & Spicy"],
+      "sizes": [
+        {
+          "name": "Small",
+          "price": 12.99
+        },
+        {
+          "name": "Medium",
+          "price": 15.99
+        },
+        {
+          "name": "Large",
+          "price": 18.99
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Hawaiian Pizza",
+      "description": "Sweet and savory pizza with ham, pineapple, and mozzarella cheese.",
+      "sizes": [
+        {
+          "name": "Small",
+          "price": 11.49
+        },
+        {
+          "name": "Medium",
+          "price": 13.99
+        },
+        {
+          "name": "Large",
+          "price": 16.49
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Supreme Pizza",
+      "description": "A combination of pepperoni, sausage, mushrooms, green peppers, and olives.",
+      "labels": ["Hot & Spicy"],
+      "sizes": [
+        {
+          "name": "Small",
+          "price": 12.99
+        },
+        {
+          "name": "Medium",
+          "price": 15.99
+        },
+        {
+          "name": "Large",
+          "price": 18.99
+        }
+      ]
+    }
+  ]
+}

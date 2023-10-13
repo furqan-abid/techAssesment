@@ -1,11 +1,9 @@
-const {createWebDevMember,getAllWebDevMembers,deleteWebDevMember,updateWebDevMember} = require('../controllers/webDevController')
 const express = require('express')
+const { getAllItems } = require('../controllers/cartController')
 
 
 const router = express.Router()
 
-router.route("/webDev/new").post(createWebDevMember)
-router.route("/webDev").get(getAllWebDevMembers)
-router.route("/webDev/:id").delete(deleteWebDevMember).put(updateWebDevMember)
+router.route("/items").get(getAllItems)
 
 module.exports = router
