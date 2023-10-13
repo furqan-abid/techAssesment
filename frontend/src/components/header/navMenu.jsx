@@ -26,7 +26,7 @@ const NavMenu = () => {
         <Link to='/cart'>
         <Basket>
           <ShoppingBagIcon sx={{ fontSize: "1em" }} />
-          <h4>Collection</h4>
+          <h4>Basket</h4>
           <p>$ 0.00</p>
         </Basket>
         </Link>
@@ -123,7 +123,7 @@ const Options = styled.div`
 
 const Basket = styled.div`
   width: 20%;
-  min-width: 10em;
+  min-width: 15em;
   border-radius: 20px;
   background-color: rgb(95, 167, 70);
   display: flex;
