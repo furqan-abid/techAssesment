@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const ProgressBar = () => {
+  
   const steps = [
     { label: "BASKET" },
     { label: "CHECKOUT" },
     { label: "CONFIRMATION" },
   ];
 
+  const [activeOption, setActiveOption] = useState(1);
+
+  const handleOptionClick = (index) => {
+    setActiveOption(index);
+  };
+
   return (
     <Main>
       <Container>
         {steps.map((step, index) => (
-          <Step key={index} isLast={index === steps.length - 1} isFirst={index === 0}>
+          <Step key={index} isActive={activeOption === index}>
             <span>{index + 1}</span>
             {step.label}
           </Step>
@@ -45,11 +52,11 @@ const Step = styled.p`
   position: relative;
   display: flex;
   align-items: center;
-  color: ${(props) => (props.isFirst ? "red" : "lightGray")};
+  color: ${(props) => (props.isActive ? "red" : "lightGray")};
   span {
     padding: 2px 8px;
     border-radius: 50px;
-    background-color: ${(props) => (props.isFirst ? "red" : "lightGray")};
+    background-color: ${(props) => (props.isActive ? "red" : "lightGray")};
     color: white;
     margin-right: 5px;
   }
